@@ -3,23 +3,19 @@
 //
 
 #include <Arduino.h>
-#include "config.h"
+#include "Display.h"
+
+Display display;                // das Objekt
 
 void setup() {
-
-    for (int i = 0; i < 8; i++) {
-        pinMode(SEG_PINS[i], OUTPUT );
-        digitalWrite(SEG_PINS[i], HIGH);
-    }
-
-    for(int i = 0; i < 4; i++) {
-        pinMode(DIG_PINS[i], OUTPUT );
-        digitalWrite(DIG_PINS[i], LOW);
-    }
-
-
+    display.begin();            // Pins einrichten
+    display.set_digit(0, 1);
+    display.set_digit(1, 2);
+    display.set_digit(2, 3);
+    display.set_digit(3, 4);
+    display.set_dp(1, true);    // Punkt hinter der 2 → „12.34“
 }
 
 void loop() {
-
+    display.update();           // ständig multiplexen
 }
