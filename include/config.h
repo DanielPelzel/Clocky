@@ -18,3 +18,11 @@
 
 constexpr uint8_t SEG_PINS[8] = {SEG_A, SEG_B, SEG_C, SEG_D, SEG_E, SEG_F, SEG_G, SEG_DP};
 constexpr  uint8_t DIG_PINS[4] = {DIG_1, DIG_2, DIG_3, DIG_4};
+
+// RC522 RFID-Leser (SPI)
+// Die Standard-SPI-Pins 18/19/23 sind schon vom Display belegt (SEG_E/F/G),
+// deshalb laufen SCK/MISO/MOSI hier über andere Pins. RST hängt fest an 3,3 V.
+#define RFID_SS   5
+#define RFID_SCK  4
+#define RFID_MISO 34   // reiner Eingang, passt für MISO
+#define RFID_MOSI 15

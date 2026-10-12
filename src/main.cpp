@@ -4,18 +4,40 @@
 
 #include <Arduino.h>
 #include "Display.h"
+#include "Rfid.h"
 
-Display display;                // das Objekt
+Display display;
+Rfid rfidReader;  // das Objekt (klein geschrieben, damit es nicht wie die Klasse heißt)
+
+bool tagDa = false;
+unsigned long lastTime = 0;
 
 void setup() {
-    display.begin();            // Pins einrichten
-    display.set_digit(0, 1);
-    display.set_digit(1, 2);
-    display.set_digit(2, 3);
-    display.set_digit(3, 4);
-    display.set_dp(1, true);    // Punkt hinter der 2 → „12.34“
+    Serial.begin(115200);
+    delay(2000);  // Zeit, damit der Serial Monitor nach dem Reset mitliest
+    Serial.println("Clocky startet...");
+
+    //Rfid
+    if (!rfidReader.init()) {
+        Serial.println("RC522 nicht gefunden, Verkabelung pruefen!");
+    }
 }
 
 void loop() {
-    display.update();           // ständig multiplexen
+
+    //Rfid lesen
+    if (rfidReader.is_close()) {
+        lastTime=millis();
+        if (!tagDa) {
+            Serial.println("Tagging erkannt");
+            tagDa=true;
+        }
+
+    }
+
+    if (tagDa && millis()-lastTime > 500) {
+        Serial.println("tag entfernt");
+        tagDa=false;
+    }
+
 }
