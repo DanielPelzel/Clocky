@@ -24,3 +24,20 @@ bool Rfid::init() {
 bool Rfid::is_close() {
     return rfid.PICC_IsNewCardPresent() && rfid.PICC_ReadCardSerial();
 }
+
+void Rfid::update() {
+
+    if (is_close()) {
+        lastTime=millis();
+        if (!tagDa) {
+            Serial.println("Tagging erkannt");
+            tagDa=true;
+        }
+
+    }
+
+    if (tagDa && millis()-lastTime > 500) {
+        Serial.println("tag entfernt");
+        tagDa=false;
+    }
+}

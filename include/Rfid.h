@@ -9,7 +9,15 @@ class Rfid {
 public:
     Rfid() = default;   // nichts zu tun, deshalb vom Compiler erzeugen lassen
     bool init();
-    bool is_close();
+    void update();
+
 
 private:
+
+    bool tagDa = false;
+    unsigned long lastTime = 0;
+
+    bool is_close();
+
+
 };

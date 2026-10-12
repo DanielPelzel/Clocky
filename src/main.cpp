@@ -9,8 +9,7 @@
 Display display;
 Rfid rfidReader;  // das Objekt (klein geschrieben, damit es nicht wie die Klasse heißt)
 
-bool tagDa = false;
-unsigned long lastTime = 0;
+
 
 void setup() {
     Serial.begin(115200);
@@ -25,19 +24,8 @@ void setup() {
 
 void loop() {
 
+
     //Rfid lesen
-    if (rfidReader.is_close()) {
-        lastTime=millis();
-        if (!tagDa) {
-            Serial.println("Tagging erkannt");
-            tagDa=true;
-        }
-
-    }
-
-    if (tagDa && millis()-lastTime > 500) {
-        Serial.println("tag entfernt");
-        tagDa=false;
-    }
+    rfidReader.update();
 
 }
