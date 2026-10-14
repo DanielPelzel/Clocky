@@ -5,10 +5,11 @@
 #include <Arduino.h>
 #include "Display.h"
 #include "Rfid.h"
+#include "Imu.h"
 
 Display display;
 Rfid rfidReader;  // das Objekt (klein geschrieben, damit es nicht wie die Klasse heißt)
-
+Imu imu;
 
 
 void setup() {
@@ -20,6 +21,9 @@ void setup() {
     if (!rfidReader.init()) {
         Serial.println("RC522 nicht gefunden, Verkabelung pruefen!");
     }
+
+    //imu
+    imu.init();
 }
 
 void loop() {
@@ -27,5 +31,6 @@ void loop() {
 
     //Rfid lesen
     rfidReader.update();
+    imu.update();
 
 }

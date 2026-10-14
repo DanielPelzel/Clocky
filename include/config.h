@@ -26,3 +26,9 @@ constexpr  uint8_t DIG_PINS[4] = {DIG_1, DIG_2, DIG_3, DIG_4};
 #define RFID_SCK  4
 #define RFID_MISO 34   // reiner Eingang, passt für MISO
 #define RFID_MOSI 15
+
+
+
+//IMU
+#define IMU_SCL 19
+#define IMU_SDA 21
