@@ -35,8 +35,6 @@ void Imu::read_regist() {
     acc_z = read_be(zh, zl) / 16384.0f * 9.81f;
 
     betrag_acc = sqrt(acc_x * acc_x + acc_y * acc_y + acc_z * acc_z) - offset;
-
-
 }
 
 void Imu::update() {
@@ -47,6 +45,6 @@ void Imu::update() {
     Serial.println(betrag_acc);
 }
 
-int16_t Imu::read_be(uint8_t hByte,uint8_t lByte) {
+int16_t Imu::read_be(uint8_t hByte, uint8_t lByte) {
     return static_cast<int16_t>(hByte << 8 | lByte);
 }

@@ -32,3 +32,16 @@ constexpr  uint8_t DIG_PINS[4] = {DIG_1, DIG_2, DIG_3, DIG_4};
 //IMU
 #define IMU_SCL 19
 #define IMU_SDA 21
+
+
+//Motoren
+#define MOTOR_PIN_1 25
+#define MOTOR_PIN_2 26
+#define MOTOR_PIN_3
+#define MOTOR_PIN_4
+
+#define PWM_FREQ 1000
+#define PWM_RES  8        // 8 Bit = 0-255, passt zu den Speed-Werten
+#define MOTOR_RAMP_MS 5  // alle 5 ms ein Schritt: 0 auf 255 in ca. 1,3 s
+#define PWM_CH_A 0
+#define PWM_CH_B 1
