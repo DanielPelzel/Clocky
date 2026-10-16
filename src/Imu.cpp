@@ -41,7 +41,7 @@ void Imu::read_regist() {
 
 void Imu::update() {
     static unsigned long last_time = 0;
-    if (millis() - last_time < 1000) return;
+    if (millis() - last_time < 20) return;
     last_time = millis();
     read_regist();
     Serial.println(betrag_acc);
