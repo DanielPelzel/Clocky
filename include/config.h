@@ -30,5 +30,10 @@ constexpr  uint8_t DIG_PINS[4] = {DIG_1, DIG_2, DIG_3, DIG_4};
 
 
 //IMU
-#define IMU_SCL 19
+#define IMU_SCL 22
 #define IMU_SDA 21
+
+
+//MiniPlayer
+#define UART_RX 16
+#define UART_TX 17

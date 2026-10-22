@@ -28,7 +28,7 @@ private:
     float acc_x, acc_y, acc_z;
     float betrag_acc;
     const int CLOCK_SPEED = 400000;
-    const int IMU_ADRESS = 0x68;
+    const int IMU_ADRESS = 0x69;
     const int Acc_ADRESS = 0x3B;
     const float offset = 10.55;
 
