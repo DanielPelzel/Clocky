@@ -32,3 +32,10 @@ constexpr  uint8_t DIG_PINS[4] = {DIG_1, DIG_2, DIG_3, DIG_4};
 //IMU
 #define IMU_SCL 19
 #define IMU_SDA 21
+
+
+
+
+//Button
+#define BUTTON1 19
+#define BUTTON2 18

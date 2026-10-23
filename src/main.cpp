@@ -3,13 +3,20 @@
 //
 
 #include <Arduino.h>
+
+#include "Button.h"
+#include "config.h"
 #include "Display.h"
 #include "Rfid.h"
 #include "Imu.h"
 
+
+
 Display display;
 Rfid rfidReader;  // das Objekt (klein geschrieben, damit es nicht wie die Klasse heißt)
 Imu imu;
+Button button1;
+Button button2;
 
 
 void setup() {
@@ -23,7 +30,12 @@ void setup() {
     }
 
     //imu
-    imu.init();
+   // imu.init();
+
+    //buttons
+    button1.init(BUTTON1);
+    button2.init(BUTTON2);
+
 }
 
 void loop() {
@@ -31,6 +43,8 @@ void loop() {
 
     //Rfid lesen
     rfidReader.update();
-    imu.update();
+   // imu.update();
+    bool pressed = button1.buttonWasPressed();
+    bool pressed2 = button2.buttonWasPressed();
 
 }
