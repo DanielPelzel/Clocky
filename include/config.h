@@ -50,3 +50,8 @@ constexpr  uint8_t DIG_PINS[4] = {DIG_1, DIG_2, DIG_3, DIG_4};
 #define MOTOR_RAMP_MS 5  // alle 5 ms ein Schritt: 0 auf 255 in ca. 1,3 s
 #define PWM_CH_A 0
 #define PWM_CH_B 1
+
+
+//Button
+#define BUTTON1 19
+#define BUTTON2 18

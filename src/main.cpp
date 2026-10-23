@@ -3,6 +3,8 @@
 //
 
 #include <Arduino.h>
+
+#include "Button.h"
 #include "Display.h"
 #include "Rfid.h"
 #include "Imu.h"
@@ -16,10 +18,8 @@ Rfid rfidReader;  // das Objekt (klein geschrieben, damit es nicht wie die Klass
 Imu imu;
 U8G2_SSD1306_128X64_NONAME_F_HW_I2C display(U8G2_R0, U8X8_PIN_NONE);
 MiniPlayer miniPlayer;
-
-
-
-
+Button button1;
+Button button2;
 
 
 void setup() {
@@ -34,7 +34,7 @@ void setup() {
     }
 
     //imu
-    imu.init();
+    // imu.init();
 
 
 
@@ -56,12 +56,18 @@ void setup() {
     delay(200);
     miniPlayer.play();
 
+    //buttons
+    button1.init(BUTTON1);
+    button2.init(BUTTON2);
+
 }
 
 void loop() {
     //Rfid lesen
     rfidReader.update();
-    imu.update();
+   // imu.update();
+    bool pressed = button1.buttonWasPressed();
+    bool pressed2 = button2.buttonWasPressed();
 
 
     //Display Test
