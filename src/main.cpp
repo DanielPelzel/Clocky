@@ -59,8 +59,6 @@ void setup() {
 }
 
 void loop() {
-
-
     //Rfid lesen
     rfidReader.update();
     imu.update();

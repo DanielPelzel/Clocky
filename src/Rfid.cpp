@@ -26,18 +26,16 @@ bool Rfid::is_close() {
 }
 
 void Rfid::update() {
-
     if (is_close()) {
-        lastTime=millis();
+        lastTime = millis();
         if (!tagDa) {
             Serial.println("Tagging erkannt");
-            tagDa=true;
+            tagDa = true;
         }
-
     }
 
-    if (tagDa && millis()-lastTime > 500) {
+    if (tagDa && millis() - lastTime > 500) {
         Serial.println("tag entfernt");
-        tagDa=false;
+        tagDa = false;
     }
 }
