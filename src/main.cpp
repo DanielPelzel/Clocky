@@ -10,6 +10,8 @@
 #include "Imu.h"
 #include <U8g2lib.h>
 
+
+
 #include "config.h"
 #include "MiniPlayer.h"
 
@@ -35,9 +37,6 @@ void setup() {
 
     //imu
     // imu.init();
-
-
-
 
     //Display Test
    display.begin();

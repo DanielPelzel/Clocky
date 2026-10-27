@@ -18,9 +18,11 @@ bool Button::buttonWasPressed() {
     if (state != _lastState && millis() - _lastSwitch > 30) {
         _lastState = state;
         _lastSwitch = millis();
-        Serial.println("Button was pressed");
 
-        if (state == LOW) return true;
+
+        if (state == LOW)
+            Serial.println("Button was pressed");
+            return true;
     }
     return false;
 }
