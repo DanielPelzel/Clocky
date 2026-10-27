@@ -9,6 +9,7 @@
 #include "Rfid.h"
 #include "Imu.h"
 #include <U8g2lib.h>
+#include "Oled.h"
 
 
 
@@ -18,11 +19,10 @@
 
 Rfid rfidReader;  // das Objekt (klein geschrieben, damit es nicht wie die Klasse heißt)
 Imu imu;
-U8G2_SSD1306_128X64_NONAME_F_HW_I2C display(U8G2_R0, U8X8_PIN_NONE);
 MiniPlayer miniPlayer;
 Button button1;
 Button button2;
-
+Oled oled;
 
 void setup() {
     Serial.begin(115200);
@@ -39,10 +39,8 @@ void setup() {
     // imu.init();
 
     //Display Test
-   display.begin();
-    display.setFont(u8g2_font_logisoso32_tn);
-    display.drawStr(10, 48, "20:12");
-    display.sendBuffer();
+   oled.init();
+
 
 
     int stundde = 7;
@@ -70,5 +68,5 @@ void loop() {
 
 
     //Display Test
-
+    oled.showTime();
 }
